@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 import io
 import os
-from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 import os
 from langchain.text_splitter import CharacterTextSplitter
