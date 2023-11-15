@@ -1,7 +1,0 @@
-streamlit==0.89.0
-requests==2.26.0
-python-dotenv==0.19.2
-PyPDF2==1.26.0
-langchain==<version>  # Replace <version> with the actual version you are using
-htmlTemplaytes==<version>  # Replace <version> with the actual version you are using
-toml==0.10.2
