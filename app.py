@@ -16,7 +16,7 @@ from langchain.llms import HuggingFaceHub
 # Image captioning code
 API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-base"
 # Access the API token
-api_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+api_token = HUGGINGFACEHUB_API_TOKEN
 
 # Use the token in your headers
 headers = {"Authorization": f"Bearer {api_token}"}
