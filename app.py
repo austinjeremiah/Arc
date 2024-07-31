@@ -12,17 +12,12 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplaytes import css, bot_template, user_template
 from langchain.llms import HuggingFaceHub
-
-# Image captioning code
 API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-base"
-# Access the API token
 api_token = HUGGINGFACEHUB_API_TOKEN
-
-# Use the token in your headers
 headers = {"Authorization": f"Bearer {api_token}"}
 
 def query_image_caption(image):
-    # Read the uploaded image as bytes
+
     image_data = image.read()
 
     response = requests.post(API_URL, headers=headers, data=image_data)
@@ -66,8 +61,8 @@ def get_conversation_chain(vectorstore):
     return conversation_chain
 
 def handle_userinput(user_question, image_caption):
-    # Concatenate the user's question and image caption
-    universalprompt = "Assume me that im a high level electronic engineer so give me the answer more and more technical that only  very high experience people can understand and also dont mention anywhere about me just give answer.question is "
+
+    universalprompt = "From the input pdf"
     user_question = universalprompt + user_question
     user_input = f"{user_question}. Additional information is {image_caption}"
     
@@ -78,8 +73,6 @@ def handle_userinput(user_question, image_caption):
 
     for bot_response in bot_responses:
         st.write(bot_template.replace("{{MSG}}", bot_response), unsafe_allow_html=True)
-
-
 def main():
     load_dotenv()
     st.set_page_config(page_title="Arc FaultBOt", page_icon=":books:")
